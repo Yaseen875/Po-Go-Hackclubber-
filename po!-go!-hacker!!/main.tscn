@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dgc12mswwsjfd" path="res://player.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://045bijvh7xcu" path="res://slime.tscn" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://carl85r5cvbva" path="res://scenes/killzone.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://buj15lno3dgqb" path="res://jump_monster.tscn" id="8_5vw27"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2o6t"]
 texture = ExtResource("1_80nbo")
@@ -199,6 +200,9 @@ script = null
 [node name="CollisionShape2D" parent="killzone" index="1" unique_id=449493991]
 position = Vector2(311.5, 0)
 shape = SubResource("WorldBoundaryShape2D_onrkg")
+
+[node name="JumpMonster" parent="." unique_id=490796052 instance=ExtResource("8_5vw27")]
+position = Vector2(129, 522)
 
 [connection signal="area_entered" from="killzone" to="." method="_on_killzone_area_entered"]
 [connection signal="body_entered" from="killzone" to="." method="_on_killzone_body_entered"]

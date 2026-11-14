@@ -9,7 +9,7 @@ signal unstuck
 @export var air_move_speed: float = 300.0
 @export var jump_velocity: float = -400.0
 
-@export var sink_delay: float = 2.0
+@export var sink_delay: float = 0.5
 @export var sink_speed: float = 20.0
 @export var max_sink_depth: float = 12.0
 
@@ -21,11 +21,6 @@ var sink_depth: float = 0.0
 var just_jumped: bool = false
 var is_fully_sunk: bool = false
 var knockback_timer: float = 0.0
-
-
-func _ready() -> void:
-	double_jump.area_entered.connect(_on_double_jump_area_entered)
-
 
 func _physics_process(delta: float) -> void:
 	just_jumped = false
@@ -89,11 +84,13 @@ func _on_double_jump_area_entered(area: Area2D) -> void:
 		if area.owner.has_method("take_damage"):
 			area.owner.take_damage()
 		launch_jump()
+	elif area.is_in_group("JUMP_BOOS"):
+		velocity.y += jump_velocity
 
 func handle_monster_collisions() -> void:
 	for i in get_slide_collision_count():
 		var collision := get_slide_collision(i)
 		var collider := collision.get_collider()
 		if collider and collider.is_in_group("monster") and collision.get_normal().y > -0.5:
-			velocity = collision.get_normal() * knockback_speed
+			get_tree().reload_current_scene()
 			knockback_timer = knockback_duration
