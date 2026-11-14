@@ -11,6 +11,7 @@ var gravity : float = 98.0
 var is_dead : bool = false
 
 func _ready() -> void:
+	add_to_group("monster")
 	if dir == 0:
 		dir = 1
 	animated_sprite_2d.flip_h = false if dir == 1 else true
@@ -22,9 +23,12 @@ func _physics_process(delta: float) -> void:
 		return
 	if health <= 0:
 		is_dead = true
-		animated_sprite_2d.play("dying")
+		if animated_sprite_2d.sprite_frames.has_animation("dying"):
+			animated_sprite_2d.play("dying")
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)
 		#$BouncingArea/CollisionShape2D.set_deferred("disabled", true)
+		await get_tree().create_timer(0.8).timeout
+		queue_free()
 		return
 	if dir == 1 and ($RightRay.is_colliding()):
 		animated_sprite_2d.flip_h = true
