@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://045bijvh7xcu"]
+
+[ext_resource type="Texture2D" uid="uid://k3t673ctcbd7" path="res://assets/Slime.png" id="1_2d52u"]
+[ext_resource type="Script" uid="uid://okpkw5t75rvl" path="res://slime.gd" id="1_5jc4t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jc4t"]
+atlas = ExtResource("1_2d52u")
+region = Rect2(256, 80, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l1t8"]
+atlas = ExtResource("1_2d52u")
+region = Rect2(288, 80, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppcr1"]
+atlas = ExtResource("1_2d52u")
+region = Rect2(320, 80, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jayke"]
+atlas = ExtResource("1_2d52u")
+region = Rect2(352, 80, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_onkbk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jc4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l1t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppcr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jayke")
+}],
+"loop": 1,
+"name": &"Walking",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onkbk"]
+radius = 6.0827627
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ad8vj"]
+radius = 8.062258
+
+[node name="Slime" type="CharacterBody2D" unique_id=1971728512]
+script = ExtResource("1_5jc4t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1635900759]
+sprite_frames = SubResource("SpriteFrames_onkbk")
+animation = &"Walking"
+autoplay = "Walking"
+frame_progress = 0.6949332
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1586768591]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_onkbk")
+
+[node name="LeftRay" type="RayCast2D" parent="." unique_id=997844348]
+rotation = 1.5707964
+exclude_parent = false
+target_position = Vector2(7.430936e-07, 17)
+
+[node name="RightRay" type="RayCast2D" parent="." unique_id=278263965]
+rotation = 4.712389
+exclude_parent = false
+target_position = Vector2(7.430936e-07, 17)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=673340924]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1199745896]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_ad8vj")
+debug_color = Color(0.95088524, 8.663535e-07, 0.56881344, 0.41960785)
