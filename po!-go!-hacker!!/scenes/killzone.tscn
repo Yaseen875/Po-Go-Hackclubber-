@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cjrv68l4cevxm" path="res://scenes/killzone.gd" id="1_xlapc"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_272bh"]
+
 [node name="killzone" type="Area2D" unique_id=460706899]
 script = ExtResource("1_xlapc")
 
 [node name="Timer" type="Timer" parent="." unique_id=619189369]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=449493991]
+shape = SubResource("WorldBoundaryShape2D_272bh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
