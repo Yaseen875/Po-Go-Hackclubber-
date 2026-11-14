@@ -104,10 +104,11 @@ frame_progress = 0.842778
 position = Vector2(100, 442)
 shape = SubResource("RectangleShape2D_ad8vj")
 
-[node name="DoubleJump" type="Area2D" parent="."]
-position = Vector2(0, 10)
+[node name="DoubleJump" type="Area2D" parent="." unique_id=1027690361]
+position = Vector2(100, 452)
 collision_layer = 0
-collision_mask = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoubleJump"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoubleJump" unique_id=2041716498]
 shape = SubResource("CircleShape2D_pogo1")
+
+[connection signal="area_entered" from="DoubleJump" to="." method="_on_double_jump_area_entered"]

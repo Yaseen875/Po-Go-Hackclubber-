@@ -26,17 +26,14 @@ func _physics_process(delta: float) -> void:
 		if animated_sprite_2d.sprite_frames.has_animation("dying"):
 			animated_sprite_2d.play("dying")
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)
-		#$BouncingArea/CollisionShape2D.set_deferred("disabled", true)
 		await get_tree().create_timer(0.8).timeout
 		queue_free()
 		return
 	if dir == 1 and ($RightRay.is_colliding()):
 		animated_sprite_2d.flip_h = true
-		#$BouncingArea.scale.x = -1
 		dir = -1
 	if dir == -1 and ($LeftRay.is_colliding()):
 		animated_sprite_2d.flip_h = false
-		#$BouncingArea.scale.x = 1
 		dir = 1
 		
 	velocity.x = lerp(velocity.x, dir * speed, 10 * delta)
