@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Po! Go! Hacker!!"
-run/main_scene="uid://ctcaciekf2ewv"
+run/main_scene="uid://bh1wxvgji5odg"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

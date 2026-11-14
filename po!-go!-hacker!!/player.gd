@@ -22,6 +22,10 @@ var just_jumped: bool = false
 var is_fully_sunk: bool = false
 var knockback_timer: float = 0.0
 
+func _ready() -> void:
+	add_to_group("player")
+	double_jump.area_entered.connect(_on_double_jump_area_entered)
+
 func _physics_process(delta: float) -> void:
 	just_jumped = false
 
@@ -38,7 +42,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		if Input.is_action_pressed("JUMP"):
 			launch_jump()
-
+	if is_fully_sunk:
+		get_tree().call_deferred("reload_current_scene")
 	handle_sinking(delta)
 	update_animation()
 	move_and_slide()
@@ -92,5 +97,5 @@ func handle_monster_collisions() -> void:
 		var collision := get_slide_collision(i)
 		var collider := collision.get_collider()
 		if collider and collider.is_in_group("monster") and collision.get_normal().y > -0.5:
-			get_tree().reload_current_scene()
+			get_tree().call_deferred("reload_current_scene")
 			knockback_timer = knockback_duration

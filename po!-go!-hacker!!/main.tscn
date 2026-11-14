@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://dbjvw6657prad"]
+[gd_scene format=4 uid="uid://ctcaciekf2ewv"]
 
 [ext_resource type="Texture2D" uid="uid://c3jru4wp6ao1k" path="res://assets/world_tileset.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://m5tx5cc84px0" path="res://main.gd" id="1_272bh"]
@@ -159,44 +159,6 @@ size = Vector2(20, 509)
 y_sort_enabled = true
 script = ExtResource("1_272bh")
 
-[node name="slimes" type="Node2D" parent="." unique_id=1084139485]
-position = Vector2(6745, 480)
-
-[node name="Slime" parent="slimes" unique_id=1971728512 instance=ExtResource("3_feb5d")]
-position = Vector2(-6573, 88)
-
-[node name="Slime2" parent="slimes" unique_id=1326123471 instance=ExtResource("3_feb5d")]
-position = Vector2(-6242, 78)
-
-[node name="Slime3" parent="slimes" unique_id=1734830099 instance=ExtResource("3_feb5d")]
-position = Vector2(-5992, 27)
-
-[node name="Slime5" parent="slimes" unique_id=2064119090 instance=ExtResource("3_feb5d")]
-position = Vector2(-5427, 68)
-
-[node name="Slime6" parent="slimes" unique_id=1536443909 instance=ExtResource("3_feb5d")]
-position = Vector2(-5315, 68)
-
-[node name="Slime8" parent="slimes" unique_id=938282708 instance=ExtResource("3_feb5d")]
-position = Vector2(-5102, 65)
-
-[node name="Slime10" parent="slimes" unique_id=667272040 instance=ExtResource("3_feb5d")]
-position = Vector2(-4313, 23)
-
-[node name="Slime11" parent="slimes" unique_id=934295892 instance=ExtResource("3_feb5d")]
-position = Vector2(-4048, -79)
-
-[node name="Slime12" parent="slimes" unique_id=649695996 instance=ExtResource("3_feb5d")]
-position = Vector2(-2870, -8)
-
-[node name="Slime15" parent="slimes" unique_id=567831424 instance=ExtResource("3_feb5d")]
-position = Vector2(-464, -122)
-
-[node name="Slime16" parent="slimes" unique_id=941846484 instance=ExtResource("3_feb5d")]
-position = Vector2(-124, 0)
-
-[node name="Slime17" parent="slimes" unique_id=226306753 instance=ExtResource("3_feb5d")]
-
 [node name="BGs" type="Node2D" parent="." unique_id=445240901]
 
 [node name="Bg" type="Sprite2D" parent="BGs" unique_id=30922284]
@@ -216,7 +178,7 @@ position = Vector2(6038, 345)
 texture = ExtResource("1_lquwl")
 
 [node name="Bg5" type="Sprite2D" parent="BGs" unique_id=104367279]
-position = Vector2(-864, 342)
+position = Vector2(-861, 342)
 texture = ExtResource("1_lquwl")
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=768274055]
@@ -228,7 +190,7 @@ tile_set = SubResource("TileSet_onkbk")
 
 [node name="Player" parent="." unique_id=925556790 groups=["player"] instance=ExtResource("2_e2o6t")]
 position = Vector2(20, 540.99994)
-scale = Vector2(0.025, 0.025)
+scale = Vector2(0.05, 0.05)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=237018473]
 zoom = Vector2(3, 3)
@@ -256,6 +218,46 @@ position = Vector2(6099, 432)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=895110750]
 position = Vector2(-8, 416.5)
 shape = SubResource("RectangleShape2D_onkbk")
+
+[node name="Slime" parent="." unique_id=1971728512 instance=ExtResource("3_feb5d")]
+position = Vector2(172, 568)
+
+[node name="Slime2" parent="." unique_id=1326123471 instance=ExtResource("3_feb5d")]
+position = Vector2(503, 558)
+
+[node name="Slime3" parent="." unique_id=1734830099 instance=ExtResource("3_feb5d")]
+position = Vector2(753, 507)
+
+[node name="Slime5" parent="." unique_id=2064119090 instance=ExtResource("3_feb5d")]
+position = Vector2(1318, 548)
+
+[node name="Slime6" parent="." unique_id=1536443909 instance=ExtResource("3_feb5d")]
+position = Vector2(1430, 548)
+
+[node name="Slime8" parent="." unique_id=938282708 instance=ExtResource("3_feb5d")]
+position = Vector2(1643, 545)
+
+[node name="Slime10" parent="." unique_id=667272040 instance=ExtResource("3_feb5d")]
+position = Vector2(2432, 503)
+
+[node name="Slime11" parent="." unique_id=934295892 instance=ExtResource("3_feb5d")]
+position = Vector2(2697, 401)
+
+[node name="Slime12" parent="." unique_id=649695996 instance=ExtResource("3_feb5d")]
+position = Vector2(3875, 472)
+
+[node name="Slime15" parent="." unique_id=567831424 instance=ExtResource("3_feb5d")]
+position = Vector2(6281, 358)
+
+[node name="Slime16" parent="." unique_id=941846484 instance=ExtResource("3_feb5d")]
+position = Vector2(6621, 480)
+
+[node name="Slime17" parent="." unique_id=226306753 instance=ExtResource("3_feb5d")]
+position = Vector2(6745, 480)
+
+[node name="killzone2" parent="." unique_id=1936425878 instance=ExtResource("6_272bh")]
+position = Vector2(6598, 242)
+rotation = -1.5707964
 
 [connection signal="area_entered" from="killzone" to="." method="_on_killzone_area_entered"]
 [connection signal="body_entered" from="killzone" to="." method="_on_killzone_body_entered"]
