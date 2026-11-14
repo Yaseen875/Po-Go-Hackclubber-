@@ -89,7 +89,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ad8vj"]
 size = Vector2(49, 36)
 
-[node name="Player" type="CharacterBody2D" unique_id=925556790]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lf7mj"]
+size = Vector2(191, 434)
+
+[node name="Player" type="CharacterBody2D" unique_id=925556790 groups=["player"]]
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=600929528]
@@ -100,3 +103,9 @@ frame_progress = 0.842778
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=691744706]
 position = Vector2(100, 442)
 shape = SubResource("RectangleShape2D_ad8vj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=173174123 groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2061068335]
+position = Vector2(44, 166)
+shape = SubResource("RectangleShape2D_lf7mj")
