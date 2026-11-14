@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://buj15lno3dgqb"]
+
+[ext_resource type="Texture2D" uid="uid://rr8x7musgo65" path="res://assets/Mushroom/Mushroom without VFX/Mushroom-Idle.png" id="1_bisv6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfstk"]
+atlas = ExtResource("1_bisv6")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6a1a"]
+atlas = ExtResource("1_bisv6")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn3fd"]
+atlas = ExtResource("1_bisv6")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6sck"]
+atlas = ExtResource("1_bisv6")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee58u"]
+atlas = ExtResource("1_bisv6")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oux0q"]
+atlas = ExtResource("1_bisv6")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag8jf"]
+atlas = ExtResource("1_bisv6")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_onkbk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfstk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6a1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn3fd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6sck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee58u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oux0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag8jf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hf5af"]
+radius = 15.132746
+
+[node name="JumpMonster" type="Area2D" unique_id=490796052 groups=["JUMP_BOOS"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=686612948]
+sprite_frames = SubResource("SpriteFrames_onkbk")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1310684937]
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_hf5af")

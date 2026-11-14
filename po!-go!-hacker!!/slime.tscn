@@ -45,6 +45,9 @@ radius = 6.0827627
 [sub_resource type="CircleShape2D" id="CircleShape2D_ad8vj"]
 radius = 8.062258
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onkbk"]
+size = Vector2(10, 2)
+
 [node name="Slime" type="CharacterBody2D" unique_id=1971728512]
 script = ExtResource("1_5jc4t")
 
@@ -74,3 +77,9 @@ target_position = Vector2(7.430936e-07, 17)
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_ad8vj")
 debug_color = Color(0.95088524, 8.663535e-07, 0.56881344, 0.41960785)
+
+[node name="BounceArea" type="Area2D" parent="." unique_id=1504256833]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceArea" unique_id=14571701]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_onkbk")
