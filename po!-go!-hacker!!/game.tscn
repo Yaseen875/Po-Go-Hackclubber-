@@ -1,10 +1,7 @@
 [gd_scene format=3 uid="uid://baifdlw3vffbv"]
 
-[ext_resource type="Texture2D" path="res://assets/bg(1).jpg" id="2_feb5d"]
-
 [node name="Game" type="Node2D" unique_id=959695652]
 
 [node name="bg" type="Sprite2D" parent="." unique_id=1447916314]
 position = Vector2(640.00006, 360.25)
 scale = Vector2(0.7407407, 0.74251807)
-texture = ExtResource("2_feb5d")
