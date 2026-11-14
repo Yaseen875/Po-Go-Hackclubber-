@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bh1wxvgji5odg"]
+
+[ext_resource type="Script" uid="uid://b4ykixc5i1q" path="res://start_menu.gd" id="1_ia0g5"]
+[ext_resource type="Texture2D" uid="uid://d1qgo468tdx5f" path="res://assets/pogo_sprite_sheet.png" id="1_jwbto"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia0g5"]
+atlas = ExtResource("1_jwbto")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpdu5"]
+atlas = ExtResource("1_jwbto")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2mkm"]
+atlas = ExtResource("1_jwbto")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_onkbk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia0g5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpdu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2mkm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StartMenu" type="Control" unique_id=1373601404]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ia0g5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1105087979]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1226160986]
+position = Vector2(244.00003, 316)
+rotation = -0.5235988
+scale = Vector2(0.23535156, 0.29296875)
+sprite_frames = SubResource("SpriteFrames_onkbk")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1848200561]
+position = Vector2(1157, 139.99998)
+rotation = 1.0471976
+scale = Vector2(0.23535156, 0.29296875)
+sprite_frames = SubResource("SpriteFrames_onkbk")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="." unique_id=1724547841]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Do You Have The Courage To Enter The Fridge"
+
+[node name="Button" type="Button" parent="." unique_id=741044310]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "START"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
